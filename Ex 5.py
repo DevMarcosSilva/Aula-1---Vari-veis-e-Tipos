@@ -19,7 +19,10 @@ def calculo_x2():
    x2= -b-math.sqrt(delta())/2*a
    return x2
 
-print("x1:", delta())
-print("x1:", calculo_x1())
-print("x2:", calculo_x2())
+if delta() < 0:
+    print('A equação não possui raízes reais')
+else:    
+    print("x1:", delta())
+    print("x1:", calculo_x1())
+    print("x2:", calculo_x2())
     
