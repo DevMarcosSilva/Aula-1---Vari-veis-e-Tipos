@@ -1,3 +1,5 @@
+#Escreva um aplicativo que lê um inteiro, determina e imprime se ele é ímpar ou par.
+
 numero = int(input('Informe um numero inteiro: '))
 
 def calculo_impar_par():

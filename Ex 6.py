@@ -1,3 +1,6 @@
+#Escreva um programa que leia a quantidade em segundos e 
+# imprima o resultado em dias, horas, minutos e segundos.
+
 tempo = int(input('Informe os segundos: '))
 
 

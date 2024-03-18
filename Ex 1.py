@@ -1,3 +1,7 @@
+#Escreva um aplicativo que solicita ao usuário inserir dois inteiros, 
+# obtém do usuário esses números e imprime sua soma,
+# produto, diferença e divisão.
+
 numero1 = int(input('Informe o primeiro numero inteiro: '))
 numero2 = int(input('Informe o segundo numero inteiro:' ))
 
