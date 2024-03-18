@@ -6,6 +6,6 @@ numero = input('Informe um numero com 5 digitos: ')
 
 def separa_digitos():
   for i in range(0,len(numero)):
-       print(numero[i],end="  ")
+       print(numero[i],end=" ")
 
 separa_digitos()

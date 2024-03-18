@@ -1,9 +1,17 @@
 #Escreva um aplicativo que receba a, b e c, coeficientes de uma equação do segundo grau, 
 # e calcule as raízes x’ e x” através da fórmula de Báskara.
 
-a = input('informe A: ')
-b = input('informe B: ')
-c = input('informe C: ')
+a = float(input('informe A: '))
+b = float(input('informe B: '))
+c = float(input('informe C: '))
 
-def bascara():
-    x = -b
+#def calculo_x1():
+ #   x1=-b+
+    
+def delta():
+    delta = (b**2)-(4*a*c)
+    print(delta)
+
+delta()
+
+    
