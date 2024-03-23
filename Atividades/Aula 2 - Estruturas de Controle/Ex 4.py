@@ -5,3 +5,15 @@
 #Por exemplo, 5! = 5 · 4 · 3 · 2 · 1, o que dá 120.
 #Escreva um aplicativo que lê um inteiro não negativo, calcula e imprime seu
 #fatorial.
+
+numero_informado = int(input('informe um numero interiro maior que 0: '))
+
+
+def fatorial():
+    resultado = 1
+    for i in range(numero_informado,0,-1):
+        resultado *= i
+    return resultado
+
+fatorial()
+print(fatorial())
