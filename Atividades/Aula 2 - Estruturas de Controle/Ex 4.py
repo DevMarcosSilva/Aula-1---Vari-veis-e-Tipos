@@ -8,7 +8,6 @@
 
 numero_informado = int(input('informe um numero interiro maior que 0: '))
 
-
 def fatorial():
     resultado = 1
     for i in range(numero_informado,0,-1):
