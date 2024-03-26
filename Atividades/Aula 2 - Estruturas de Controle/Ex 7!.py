@@ -10,8 +10,8 @@ numero = input("Informe um numero de até 6 digitos: ")
 
 def conta():
    conv = int(numero)
+   
    for i in range(0,conv):
-    resultado = conv[i]+conv[i+i]
+        print(len(conv))
     
-    print(resultado)
 conta()
