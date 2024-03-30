@@ -18,14 +18,36 @@ def menu():
     print('e. imprimir a média dos elementos')
     print('f. imprimir a soma dos elementos de valor negativo!')
     print('g. imprimir todas as alternativas anteriores!')
+    opcao = input("")
+    print(opcao)
+    
+    if opcao == 'a' or opcao == 'A':
+        maior()
+    elif opcao == 'b' or opcao == 'B':
+        menor()
+    elif opcao == 'c' or opcao == 'C':
+        numeros_pares()
+    elif opcao == 'd' or opcao == 'D':
+        ocorrencias()
+    elif opcao == 'e' or opcao == 'E':
+        media()                 
+    elif opcao == 'f' or opcao == 'F':
+        soma_negativo()
+    elif opcao == 'g' or opcao == 'G':
+        maior()
+        menor()
+        numeros_pares()
+        ocorrencias()
+        media()
+        soma_negativo()   
 
 def maior():
     maior_num = max(lista)
-    print(maior_num)   
+    print('O MAIOR elemento da lista é :',maior_num)   
 
 def menor():
     menor_num = min(lista)
-    print(menor_num)
+    print('O MENOR elemento da lista é :',menor_num)
 
 def numeros_pares():
     print('Os números pares na lista são: ')
@@ -39,7 +61,7 @@ def ocorrencias():
     for i,elemento in enumerate(lista):
        if elemento == num_ocor:
            cont = cont + 1
-    print(f'O elemento {lista[0]} apareceu {cont} vezes!')  
+    print(f'\nO elemento {lista[0]} apareceu {cont} vezes!')  
 
 def media():
     soma = 0
@@ -69,4 +91,4 @@ def soma_negativo():
 #soma_negativo()
 #media()
 #numeros_pares()
-#menu()
+menu()
