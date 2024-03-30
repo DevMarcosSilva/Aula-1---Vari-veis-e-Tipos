@@ -26,7 +26,17 @@ def numeros_pares():
             print(i, end=" ")
 
 def media():
+    soma = 0
+    for i in lista:
+        soma += i
+    media = soma / len(lista)
+    print('A média dos elementos é: ',"{:.2f}".format(media))
+        
+      
     
+            
+
+media()
 
 #numeros_pares()
 #menu()
