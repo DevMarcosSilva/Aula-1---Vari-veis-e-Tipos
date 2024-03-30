@@ -32,11 +32,24 @@ def media():
     media = soma / len(lista)
     print('A média dos elementos é: ',"{:.2f}".format(media))
         
-      
+def soma_negativo():
+    soma = 0
+    for i in lista:
+        if i < 0:
+          soma +=i 
+    print('A soma dos valores negativos da lista é:',soma, end=" ")         
     
-            
+def maior():
+    maior_num = max(lista)
+    print(maior_num)                    
 
-media()
+def menor():
+    menor_num = min(lista)
+    print(menor_num)
 
+menor()
+#maior()
+#soma_negativo()
+#media()
 #numeros_pares()
 #menu()
