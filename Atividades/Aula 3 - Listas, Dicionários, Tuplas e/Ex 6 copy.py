@@ -25,9 +25,11 @@ def lugares_desejados(sala_soli,lugares_soli):
                     print('atualizando...')
                     time.sleep(1)
                     print(f'Na Sala {sala_solic} - agora restam ainda {elemet_lugares_vagos} lugar(s)')
+                    lugares_vagos[indice]-=lugares_solic 
                 else: 
                     print(f'não temos essa quantidade de lugares na sala {sala_solic}')
-        opcao = input(print('Deseja continuar comprando: SIM ou NÃO! '))            
+        print('Deseja continuar comprando: SIM ou NÃO!')
+        opcao = input()            
         while opcao == 'sim' or opcao == 'SIM':
             inicio()
 
