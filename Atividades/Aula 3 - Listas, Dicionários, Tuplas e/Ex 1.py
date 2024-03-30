@@ -47,7 +47,16 @@ def menor():
     menor_num = min(lista)
     print(menor_num)
 
-menor()
+def ocorrencias():
+    num_ocor = 0
+    for i in lista:
+      if i == i[1]:
+            num_ocor += i
+    print(num_ocor)        
+
+
+ocorrencias()
+#menor()
 #maior()
 #soma_negativo()
 #media()
