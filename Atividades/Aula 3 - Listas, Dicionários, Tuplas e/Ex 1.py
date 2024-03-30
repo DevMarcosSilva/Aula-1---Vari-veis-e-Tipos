@@ -77,18 +77,4 @@ def soma_negativo():
           soma +=i 
     print('A soma dos valores negativos da lista é:',soma, end=" ")         
     
-                 
-
-
-
- 
-               
-
-
-#ocorrencias()
-#menor()
-#maior()
-#soma_negativo()
-#media()
-#numeros_pares()
 menu()
