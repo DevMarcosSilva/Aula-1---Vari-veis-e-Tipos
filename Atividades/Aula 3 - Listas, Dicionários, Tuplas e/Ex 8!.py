@@ -16,6 +16,9 @@ def valor_comum():
     print('A interseção entre os elementos da lista 1 é lista 2 são:')
     for elemento in elemento_comum:
         print(elemento, end=" ")
+        
+    apenas1lista = conju_lista1.difference(lista2)
+    print('\n',apenas1lista)    
  
 
         
