@@ -1,16 +1,14 @@
 #faça um jogo da Forca utilizando listas. Dada uma palavra, dê algumas
 #chances para o usuário acertar.
-
-
 import random
 
 def escolher_palavra():
-    """Função para escolher uma palavra aleatória."""
+    
     palavras = ['python', 'programação', 'computador', 'algoritmo', 'desenvolvimento']
     return random.choice(palavras)
 
 def exibir_palavra(palavra, letras_corretas):
-    """Função para exibir a palavra com as letras corretas adivinhadas."""
+    
     exibicao = ''
     for letra in palavra:
         if letra in letras_corretas:
@@ -20,7 +18,7 @@ def exibir_palavra(palavra, letras_corretas):
     return exibicao
 
 def desenhar_boneco(tentativas):
-    """Função para desenhar o boneco com base no número de tentativas restantes."""
+    
     if tentativas == 6:
         print("""
           +---+
@@ -93,7 +91,7 @@ def desenhar_boneco(tentativas):
         """)
 
 def jogo_da_forca():
-    """Função principal do jogo da forca."""
+    
     palavra = escolher_palavra()
     letras_corretas = set()
     tentativas = 6
@@ -126,5 +124,4 @@ def jogo_da_forca():
     if tentativas == 0:
         print("Você perdeu! A palavra correta era:", palavra)
 
-# Executa o jogo da forca
 jogo_da_forca()
