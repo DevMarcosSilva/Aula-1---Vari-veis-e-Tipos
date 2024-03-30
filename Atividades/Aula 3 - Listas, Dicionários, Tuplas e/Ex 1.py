@@ -19,11 +19,27 @@ def menu():
     print('f. imprimir a soma dos elementos de valor negativo!')
     print('g. imprimir todas as alternativas anteriores!')
 
+def maior():
+    maior_num = max(lista)
+    print(maior_num)   
+
+def menor():
+    menor_num = min(lista)
+    print(menor_num)
+
 def numeros_pares():
     print('Os números pares na lista são: ')
     for i in lista:
         if i%2==0:
             print(i, end=" ")
+
+def ocorrencias():
+    num_ocor = lista[0]
+    cont = 0
+    for i,elemento in enumerate(lista):
+       if elemento == num_ocor:
+           cont = cont + 1
+    print(f'O elemento {lista[0]} apareceu {cont} vezes!')  
 
 def media():
     soma = 0
@@ -39,23 +55,15 @@ def soma_negativo():
           soma +=i 
     print('A soma dos valores negativos da lista é:',soma, end=" ")         
     
-def maior():
-    maior_num = max(lista)
-    print(maior_num)                    
-
-def menor():
-    menor_num = min(lista)
-    print(menor_num)
-
-def ocorrencias():
-    num_ocor = 0
-    for i in lista:
-      if i == i[1]:
-            num_ocor += i
-    print(num_ocor)        
+                 
 
 
-ocorrencias()
+
+ 
+               
+
+
+#ocorrencias()
 #menor()
 #maior()
 #soma_negativo()
