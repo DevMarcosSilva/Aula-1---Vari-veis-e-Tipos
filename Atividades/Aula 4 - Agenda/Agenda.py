@@ -32,6 +32,7 @@ def menu():
             ordenar()  
         elif opcao == 6:
          print('program encerrado até a próxima!')       
+
 def inserir():
     tarefa = {}
     tarefa['titulo'] = input('Informe o título da tarefa que deseja inserir: ')
@@ -149,4 +150,5 @@ def ordenar():
         print(f'data-aniversario: {tarefa["data-aniversario"]}\n')    
         time.sleep(1)
         menu()
+
 menu()
