@@ -10,54 +10,84 @@
 #f. Permita o cadastro de tipos de telefone: celular, fixo, residência ou
 #trabalho
 import time
-numero_Tarefas = [10]
-nomeTarefa = []
-dataInicio = []
-dataTerm = []
-i = 0
+
+agenda = []
+
 def menu():
-    opcao = int(input('Olá informe o que deseja!\n 1.Inserir nova tarefa\n 2.editar tarefa\n 3.visualiza todas as tarefas\n 4.Apagar tarefa\n 5.Sair da agenda\n'))
-    while opcao != 1 and opcao != 2 and opcao != 3 and opcao != 4 and opcao != 5 :
-       print('Opçao inválida insira um numero de 1 a 5\n')
-       time.sleep(1)
-       menu()
+        opcao = int(input(f'TAMANHO AGENDA {len(agenda)} \nOlá, informe o que deseja!\n 1. Inserir nova tarefa\n 2. Editar tarefa\n 3. Visualizar todas as tarefas\n 4. Apagar tarefa\n 5. Sair da agenda\n'))
+        while opcao < 1 or opcao > 5:
+            print('OPÇÃO INVÁLIDA! Insira um número de 1 a 5\n')
+            time.sleep(1)
+            opcao = int(input('Olá, informe o que deseja!\n 1. Inserir nova tarefa\n 2. Editar tarefa\n 3. Visualizar todas as tarefas\n 4. Apagar tarefa\n 5. Sair da agenda\n'))
+
+        if opcao == 1:
+            inserir()
+        elif opcao == 2:
+            editar()
+        elif opcao == 3:
+            listar_tarefas()
+
+def inserir():
+    tarefa = {}
+    tarefa['titulo'] = input('Informe o título da tarefa que deseja inserir: ')
+    for i in agenda:
+          if i['titulo'] == tarefa['titulo']:
+            print('ERRO: ESTA TAREFA JÁ EXISTE NA AGENDA, INSIRA UM TÍTULO DIFERENTE !')
+            time.sleep(2)
+            inserir()
+            return  
+               
+    tarefa['data_inicio'] = input('Informe a data de início da tarefa: ')
+    tarefa['data_termino'] = input('Informe a data de término da tarefa: ')
+    tarefa['e-mail'] = input('Informe o e-mail do usuario: ')
+    tarefa['tipo-telefone'] = input('Informe tipo de telefone: ')
+    tarefa['telefone'] = input('Informe o telefone: ')
+    tarefa['data-aniversario'] = input('Informe a data de aniversario: ')
+    agenda.append(tarefa)
+        
+    print('Tarefa agendada com sucesso!')
+    time.sleep(1)
+          
+    opcao = int(input('Para cadastrar mais uma tarefa digite 1 ou 2 para retornar ao menu principal: '))
     if opcao == 1:
-        inserir()
+           inserir()
     elif opcao == 2:
-        listadeTarefas()          
+            menu()
 
-def inserir(i=0):
-    
-    while i < len(numero_Tarefas):
-        nomeinserido = {}
-        nomeinserido['nome-tarefa'] = input('Informe o título da tarefa que deseja inserir: ')
-        nomeTarefa.append(nomeinserido)
+def listar_tarefas():
+    if not agenda:
+        print('A agenda está vazia.')
+    else:
+        for i, tarefa in enumerate(agenda):
+            print(f'Tarefa {i+1}:')
+            print(f'Título: {tarefa["titulo"]}')
+            print(f'Data de Início: {tarefa["data_inicio"]}')
+            print(f'Data de Término: {tarefa["data_termino"]}')
+            print(f'E-mail: {tarefa["e-mail"]}')
+            print(f'tipo-telefone: {tarefa["tipo-telefone"]}')
+            print(f'telefone: {tarefa["telefone"]}')
+            print(f'data-aniversario: {tarefa["data-aniversario"]}\n')
+    return tarefa
 
-        dataInicioUser = {}
-        dataInicioUser['data-inicio'] = input('Informe a data de inicio da tarefa: ')
-        dataInicio.append(dataInicioUser)
-        
-        dataTermUser = {}
-        dataTermUser['data-termino'] = input('Informe a data de término da tarefa: ')
-        dataTerm.append(dataTermUser)
-
-        print(f'Tarefa agendada com sucesso! Nº TAREFA É: {i+1}')
-        i += 1
-        
-    
-    opcao = int(input('Para cadastrar mais uma tarefa digite 1 ou 2 para retornar ao menu principal'))
-    if opcao == 1:
-        inserir()
-    elif opcao == 2:
-        menu()    
-
-def listadeTarefas():
-    for i in range(0,len(nomeTarefa)):
-        print(f'Tarefa {i+1}')
-        print(nomeTarefa[i])
-        print(dataInicio[i])
-        print(dataTerm[i])
-        
+def editar():
+    opcao = int(input('Informe o número da tarefa que deseja editar, ou digite 0 para visualizar todas as tarefas: '))
+    if opcao == 0:
+        listar_tarefas()
+        opcao = int(input('Informe o número da tarefa que deseja editar: '))
+    if opcao > 0 and opcao <= len(agenda):
+        tarefa = agenda[opcao - 1]  
+        print(f'Editando Tarefa {opcao}:')
+        tarefa['titulo'] = input('Informe o novo título da tarefa: ')
+        tarefa['data_inicio'] = input('Informe a nova data de início da tarefa: ')
+        tarefa['data_termino'] = input('Informe a nova data de término da tarefa: ')
+        tarefa['e-mail'] = input('Informe o novo e-mail do usuário: ')
+        tarefa['tipo_telefone'] = input('Informe o novo tipo de telefone: ')
+        tarefa['telefone'] = input('Informe o novo telefone: ')
+        tarefa['data_aniversario'] = input('Informe a nova data de aniversário: ')
+        print('Tarefa editada com sucesso!')
+        time.sleep(1)
+        menu()
+    else:
+        print('Número de tarefa inválido.')    
 
 menu()
-  
