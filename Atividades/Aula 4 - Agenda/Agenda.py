@@ -26,7 +26,8 @@ def menu():
             editar()
         elif opcao == 3:
             listar_tarefas()
-
+        elif opcao == 4:
+            apagar()
 def inserir():
     tarefa = {}
     tarefa['titulo'] = input('Informe o título da tarefa que deseja inserir: ')
@@ -90,4 +91,30 @@ def editar():
     else:
         print('Número de tarefa inválido.')    
 
+def apagar():
+    opcao = int(input('Informe o número da tarefa que deseja APAGAR, ou digite 0 para visualizar todas as tarefas: '))
+    if opcao == 0:
+        listar_tarefas()
+        opcao = int(input('Informe o número da tarefa que deseja APAGAR: '))
+        if opcao > 0 and opcao <= len(agenda):
+            tarefa = agenda[opcao - 1]  
+            print(f'VAMOS APAGAR A TAREFA {opcao}:')
+            print(f'Título: {tarefa["titulo"]}')
+            print(f'Data de Início: {tarefa["data_inicio"]}')
+            print(f'Data de Término: {tarefa["data_termino"]}')
+            print(f'E-mail: {tarefa["e-mail"]}')
+            print(f'tipo-telefone: {tarefa["tipo-telefone"]}')
+            print(f'telefone: {tarefa["telefone"]}')
+            print(f'data-aniversario: {tarefa["data-aniversario"]}\n')
+        deletar = int(input('para apagar a tarefa digite 1 ou 2 para retonar ao menu inicial'))
+        if deletar == 1:
+          del agenda[opcao-1]
+          print('Tarefa apagada com sucesso!')
+          time.sleep(1)
+          menu()
+        elif deletar != 1:
+            menu()   
+            
+        
+        
 menu()
