@@ -14,11 +14,11 @@ import time
 agenda = []
 
 def menu():
-        opcao = int(input(f'TAMANHO AGENDA {len(agenda)} \nOlá, informe o que deseja!\n 1. Inserir nova tarefa\n 2. Editar tarefa\n 3. Visualizar todas as tarefas\n 4. Apagar tarefa\n 5. Sair da agenda\n'))
-        while opcao < 1 or opcao > 5:
+        opcao = int(input(f'TAMANHO AGENDA {len(agenda)} \nOlá, informe o que deseja!\n 1. Inserir nova tarefa\n 2. Editar tarefa\n 3. Visualizar todas as tarefas\n 4. Apagar tarefa\n 5. ordenar por ordem alfabética\n 6. Sair\n'))
+        while opcao < 1 or opcao > 6:
             print('OPÇÃO INVÁLIDA! Insira um número de 1 a 5\n')
             time.sleep(1)
-            opcao = int(input('Olá, informe o que deseja!\n 1. Inserir nova tarefa\n 2. Editar tarefa\n 3. Visualizar todas as tarefas\n 4. Apagar tarefa\n 5. Sair da agenda\n'))
+            opcao = int(input('Olá, informe o que deseja!\n 1. Inserir nova tarefa\n 2. Editar tarefa\n 3. Visualizar todas as tarefas\n 4. Apagar tarefa\n 5. ordenar por ordem alfabética\n 6. Sair\n'))
 
         if opcao == 1:
             inserir()
@@ -28,6 +28,10 @@ def menu():
             listar_tarefas()
         elif opcao == 4:
             apagar()
+        elif opcao == 5:
+            ordenar()  
+        elif opcao == 6:
+         print('program encerrado até a próxima!')       
 def inserir():
     tarefa = {}
     tarefa['titulo'] = input('Informe o título da tarefa que deseja inserir: ')
@@ -41,7 +45,7 @@ def inserir():
     tarefa['data_inicio'] = input('Informe a data de início da tarefa: ')
     tarefa['data_termino'] = input('Informe a data de término da tarefa: ')
     tarefa['e-mail'] = input('Informe o e-mail do usuario: ')
-    tarefa['tipo-telefone'] = input('Informe tipo de telefone: ')
+    tarefa['tipo-telefone'] = input('Informe tipo de telefone (celular, fixo, residência ou trabalho): ')
     tarefa['telefone'] = input('Informe o telefone: ')
     tarefa['data-aniversario'] = input('Informe a data de aniversario: ')
     agenda.append(tarefa)
@@ -58,6 +62,8 @@ def inserir():
 def listar_tarefas():
     if not agenda:
         print('A agenda está vazia.')
+        time.sleep(2)
+        menu()
     else:
         for i, tarefa in enumerate(agenda):
             print(f'Tarefa {i+1}:')
@@ -68,7 +74,8 @@ def listar_tarefas():
             print(f'tipo-telefone: {tarefa["tipo-telefone"]}')
             print(f'telefone: {tarefa["telefone"]}')
             print(f'data-aniversario: {tarefa["data-aniversario"]}\n')
-    return tarefa
+    time.sleep(1)
+    menu()
 
 def editar():
     opcao = int(input('Informe o número da tarefa que deseja editar, ou digite 0 para visualizar todas as tarefas: '))
@@ -112,9 +119,34 @@ def apagar():
           print('Tarefa apagada com sucesso!')
           time.sleep(1)
           menu()
-        elif deletar != 1:
-            menu()   
+    elif opcao != 0:
+            if opcao > 0 and opcao <= len(agenda):
+                tarefa = agenda[opcao - 1]  
+                print(f'VAMOS APAGAR A TAREFA {opcao}:')
+                print(f'Título: {tarefa["titulo"]}')
+                print(f'Data de Início: {tarefa["data_inicio"]}')
+                print(f'Data de Término: {tarefa["data_termino"]}')
+                print(f'E-mail: {tarefa["e-mail"]}')
+                print(f'tipo-telefone: {tarefa["tipo-telefone"]}')
+                print(f'telefone: {tarefa["telefone"]}')
+                print(f'data-aniversario: {tarefa["data-aniversario"]}\n')    
+            deletar = int(input('para apagar a tarefa digite 1 ou 2 para retonar ao menu inicial'))
+            if deletar == 1:
+                del agenda[opcao-1]
+                print('Tarefa apagada com sucesso!')
+                time.sleep(1)
+                menu()   
             
-        
-        
+def ordenar():
+    agenda_ordenada = sorted(agenda, key=lambda tarefa: tarefa["titulo"])  
+    for i, tarefa in enumerate(agenda_ordenada):
+        print(f'Título: {tarefa["titulo"]}')
+        print(f'Data de Início: {tarefa["data_inicio"]}')
+        print(f'Data de Término: {tarefa["data_termino"]}')
+        print(f'E-mail: {tarefa["e-mail"]}')
+        print(f'tipo-telefone: {tarefa["tipo-telefone"]}')
+        print(f'telefone: {tarefa["telefone"]}')
+        print(f'data-aniversario: {tarefa["data-aniversario"]}\n')    
+        time.sleep(1)
+        menu()
 menu()
