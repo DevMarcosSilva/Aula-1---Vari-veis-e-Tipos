@@ -12,13 +12,13 @@ class ContaBancaria:
     
     def consultar_saldo(self):
         print(f"O saldo é: {self.saldo}")    
-        
-
-
-'''
- def sacar(self,valor):
-        return "o valor sacado foi {}\n seu saldo agora é {}".format(self.saldo)
     
+    def sacar(self):
+        sacar = int(input('Informe o valor que deseja sacar: '))
+        saldoFinal = self.saldo-sacar 
+        print(f'Seu saldo agora é {saldoFinal}')
+        
+'''    
     def depositar(self,valor):
         print(f'qual é o valor que deseja depositar?')  
     
