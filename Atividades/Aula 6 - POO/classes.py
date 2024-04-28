@@ -1,11 +1,10 @@
 class ContaBancaria:
-    def  __init__(self,numero_agencia,tipo_conta,saldo,limite):
+    def  __init__(self,nomeTitular,numero_agencia,tipo_conta,saldo,limite):
+        self.nomeTitular= nomeTitular
         self.numero_agencia = numero_agencia
         self.tipo_conta = tipo_conta
         self.Lista_tip_conta = ['Corrente','Poupança','Salário']
-        if self.tipo_conta in self.Lista_tip_conta:
-            self.tipo_conta == self.Lista_tip_conta
-        else:
+        if self.tipo_conta not in self.Lista_tip_conta:
             raise Exception('conta invalida')       
         self.saldo = saldo
         self.limite = limite
