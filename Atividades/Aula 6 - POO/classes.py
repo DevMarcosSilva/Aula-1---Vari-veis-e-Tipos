@@ -10,11 +10,13 @@ class ContaBancaria:
         self.limite = limite
     
     def consultar_saldo(self):
-        print(f"O saldo é: {self.saldo}")    
+        print(f"O seu saldo atual é : {self.saldo}")
+            
     
     def sacar(self):
         sacar = int(input('Informe o valor que deseja sacar: '))
         saldoFinal = self.saldo-sacar 
+        self.saldo=saldoFinal
         print(f'Seu saldo agora é {saldoFinal}')
         
 '''    

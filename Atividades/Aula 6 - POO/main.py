@@ -23,7 +23,13 @@ def criarConta():
 
 
 
+
+
 conta = ContaBancaria(*criarConta())
+
+
+
+conta.sacar()
 
 print(f'NOME: {conta.nomeTitular}\nAGÊNCIA: {conta.numero_agencia}\nTIPO: {conta.tipo_conta}\nSALDO: {conta.saldo}\nLIMITE: {conta.limite}')
      
