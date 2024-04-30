@@ -4,7 +4,7 @@ import time
 def main():
     print("Bem-vindo ao sistema bancário!")
 
-    # Coletar informações do cliente
+    
     nome = input("Informe o seu nome: ")
     sobrenome = input("Informe o seu sobrenome: ")
     cpf = input("Informe o seu CPF: ")
@@ -40,7 +40,6 @@ def main():
     print(f"Número da Agência: {conta.numero_agencia}")
     print(f"Saldo: R${conta.consultar_saldo()}")
 
-    # Exemplo de utilização das operações
     while True:
         print("\nEscolha uma operação:")
         print("1. Consultar Saldo")
