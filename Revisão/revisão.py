@@ -17,11 +17,3 @@ while dado< 0 or dado>100000000:
      dado = float(input("Informe um valor: "))  
 
 decompor(dado)   
-    
-    
-
-        
-
-
-
-
